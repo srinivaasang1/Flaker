@@ -5,12 +5,12 @@ import java.io.FileInputStream
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.gradle.mavenpublish)
+    alias(libs.plugins.gradle.mavenpublish) apply false
 }
 
-val secretsPropertiesFile = rootProject.file("secrets.properties")
-val secretProperties = Properties()
-secretProperties.load(FileInputStream(secretsPropertiesFile))
+//val secretsPropertiesFile = rootProject.file("secrets.properties")
+//val secretProperties = Properties()
+//secretProperties.load(FileInputStream(secretsPropertiesFile))
 
 version = "0.1.2"
 
@@ -27,7 +27,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        buildConfigField("String", "SENTRY_DSN", "\"${secretProperties["SENTRY_DSN"]}\"")
+//        buildConfigField("String", "SENTRY_DSN", "\"${secretProperties["SENTRY_DSN"]}\"")
     }
 
     buildTypes {

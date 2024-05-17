@@ -24,17 +24,17 @@ android {
         }
     }
 
-    signingConfigs {
-        register("release") {
-            val secretsPropertiesFile = rootProject.file("secrets.properties")
-            val secretProperties = Properties()
-            secretProperties.load(FileInputStream(secretsPropertiesFile))
-            storeFile = rootProject.file("flakerKeyStore.jks")
-            storePassword = secretProperties["SIGNING_STORE_PASSWORD"].toString()
-            keyAlias = secretProperties["SIGNING_KEY_ALIAS"].toString()
-            keyPassword = secretProperties["SIGNING_KEY_PASSWORD"].toString()
-        }
-    }
+//    signingConfigs {
+//        register("release") {
+//            val secretsPropertiesFile = rootProject.file("secrets.properties")
+//            val secretProperties = Properties()
+//            secretProperties.load(FileInputStream(secretsPropertiesFile))
+//            storeFile = rootProject.file("flakerKeyStore.jks")
+//            storePassword = secretProperties["SIGNING_STORE_PASSWORD"].toString()
+//            keyAlias = secretProperties["SIGNING_KEY_ALIAS"].toString()
+//            keyPassword = secretProperties["SIGNING_KEY_PASSWORD"].toString()
+//        }
+//    }
 
     buildTypes {
         debug {
@@ -43,7 +43,7 @@ android {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("release")
+//            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -88,6 +88,7 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-    debugImplementation(project(":library:flaker-android-okhttp"))
+    debugImplementation("com.github.srinivaasang1:Flaker:1.0.0")
+//    debugImplementation(project(":library:flaker-android-okhttp"))
     releaseImplementation(project(":library-noop:flaker-android-okhttp-noop"))
 }

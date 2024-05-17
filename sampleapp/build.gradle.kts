@@ -88,7 +88,6 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-    debugImplementation("com.github.srinivaasang1:Flaker:1.0.0")
-//    debugImplementation(project(":library:flaker-android-okhttp"))
+    debugImplementation(project(":library:flaker-android-okhttp"))
     releaseImplementation(project(":library-noop:flaker-android-okhttp-noop"))
 }

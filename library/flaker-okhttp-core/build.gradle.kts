@@ -2,7 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.gradle.mavenpublish)
+    alias(libs.plugins.gradle.mavenpublish) apply false
 }
 
 version = "0.1.2"
